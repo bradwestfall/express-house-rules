@@ -1,0 +1,39 @@
+{
+  "name": "express-house-rules",
+  "version": "0.0.0",
+  "description": "Express middleware for house-rules",
+  "main": "dist/index.js",
+  "repository": {
+    "url": "https://github.com/bradwestfall/express-house-rules"
+  },
+  "keywords": [
+    "validation",
+    "express",
+    "middleware"
+  ],
+  "scripts": {
+    "prepublish": "npm run build",
+    "clean": "rimraf dist",
+    "build": "npm run clean && babel src --out-dir dist",
+    "sandbox": "babel-node sandbox/index.js",
+    "test": "mocha test/**/**.js --require babel-polyfill --compilers js:babel-core/register"
+  },
+  "author": "Brad Westfall",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.11.4",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-2": "^6.3.13",
+    "babel-register": "^6.24.1",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.6.1",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {
+    "house-rules": "^0.4.1"
+  }
+}
