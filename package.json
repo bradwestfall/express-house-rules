@@ -1,7 +1,7 @@
 {
   "name": "express-house-rules",
   "version": "0.0.0",
-  "description": "Express middleware for house-rules",
+  "description": "Express middleware for house-rules. Validates request req.query, req.params, req.body",
   "main": "dist/index.js",
   "repository": {
     "url": "https://github.com/bradwestfall/express-house-rules"
