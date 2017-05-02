@@ -9,9 +9,12 @@ const registerHouseRules = schema => {
 // Creactes a schema based on the rules passed
 const createSchema = fields => {
 
-  if (houseRulesSchema === null) throw new Error('Must call `registerHouseRules()` method before using other API methods.')
+  if (fields[0] instanceof Schema) {
+    return fields[0]
 
-  if (Array.isArray(fields)) {
+  } else if (Array.isArray(fields)) {
+    if (houseRulesSchema === null) throw new Error('Must call `registerHouseRules()` method before using middleware with string arguments.')
+
     const optionalFields = {}
     const requiredFields = {}
 
@@ -32,8 +35,8 @@ const createSchema = fields => {
     subSchema.update(requiredFields)
     return subSchema
 
-  } else if (fields instanceof Schema) {
-    return fields
+  } else {
+    throw new Error('Invalid argument to `express-house-rules` middleware')
   }
 }
 
