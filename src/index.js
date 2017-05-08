@@ -18,7 +18,7 @@ const createSchema = fields => {
     const optionalFields = {}
     const requiredFields = {}
 
-    // Isolate an array of fields to use for the sun schema and
+    // Isolate an array of fields to use for the sub-schema and
     // create update objects for optional and required fields
     fields = fields.map(field => {
       const parts = field.split(':')
@@ -40,17 +40,9 @@ const createSchema = fields => {
   }
 }
 
-const validParams = (...fields) => {
-  return middleware(createSchema(fields), 'params')
-}
-
-const validQuery = (...fields) => {
-  return middleware(createSchema(fields), 'query')
-}
-
-const validBody = (...fields) => {
-  return middleware(createSchema(fields), 'body')
-}
+const validParams = (...fields) => middleware(createSchema(fields), 'params')
+const validQuery = (...fields) => middleware(createSchema(fields), 'query')
+const validBody = (...fields) => middleware(createSchema(fields), 'body')
 
 const middleware = (schema, requestPath) => {
   return (req, res, next) => {
