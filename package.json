@@ -15,6 +15,7 @@
     "prepublish": "npm run build",
     "clean": "rimraf dist",
     "build": "npm run clean && babel src --out-dir dist",
+    "example": "babel-node example/index.js",
     "sandbox": "babel-node sandbox/index.js",
     "test": "mocha test/**/**.js --require babel-polyfill --compilers js:babel-core/register"
   },
@@ -34,6 +35,6 @@
     "supertest": "^3.0.0"
   },
   "dependencies": {
-    "house-rules": "^0.4.3"
+    "house-rules": "^0.7.0"
   }
 }

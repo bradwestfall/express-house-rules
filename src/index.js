@@ -14,26 +14,7 @@ const createSchema = fields => {
 
   } else if (Array.isArray(fields)) {
     if (houseRulesSchema === null) throw new Error('Must call `registerHouseRules()` method before using middleware with string arguments.')
-
-    const optionalFields = {}
-    const requiredFields = {}
-
-    // Isolate an array of fields to use for the sub-schema and
-    // create update objects for optional and required fields
-    fields = fields.map(field => {
-      const parts = field.split(':')
-      if (parts.length === 2) {
-        if (['o', 'opt', 'optional'].includes(parts[0])) optionalFields[parts[1]] = houseRulesSchema.field(parts[1]).optional()
-        if (['r', 'req', 'required'].includes(parts[0])) requiredFields[parts[1]] = houseRulesSchema.field(parts[1]).required()
-      }
-      return parts[1] || parts[0]
-    })
-
-    // Create a sub-schema based on the fields
-    const subSchema = houseRulesSchema.clone(fields)
-    subSchema.update(optionalFields)
-    subSchema.update(requiredFields)
-    return subSchema
+    return houseRulesSchema.clone(fields)
 
   } else {
     throw new Error('Invalid argument to `express-house-rules` middleware')
