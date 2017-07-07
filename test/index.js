@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import request from 'supertest'
 import { Is, Schema } from 'house-rules'
 import { registerHouseRules, validQuery, validParams, validBody } from '../src'
-import houseRulesSchema from '../house-rules-schema'
+import houseRulesSchema from '../example/house-rules-schema'
 
 const app = express()
 
