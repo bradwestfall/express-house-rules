@@ -28,7 +28,8 @@ const schema = new Schema({
   firstName: name.label('First Name'),
   lastName: name.label('Last Name'),
   email: Is.string().email().required(),
-  password: Is.string().minLength(8).maxLength(100).required()
+  password: Is.string().minLength(8).maxLength(100).required(),
+  birthDate: Is.date('MM-DD-YYYY').beforeToday().required()
 })
 ```
 
