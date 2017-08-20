@@ -35,6 +35,6 @@
     "supertest": "^3.0.0"
   },
   "dependencies": {
-    "house-rules": "^0.7.0"
+    "house-rules": "^0.8.0"
   }
 }
