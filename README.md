@@ -31,6 +31,8 @@ const schema = new Schema({
   password: Is.string().minLength(8).maxLength(100).required(),
   birthDate: Is.date('MM-DD-YYYY').beforeToday().required()
 })
+
+export default schema
 ```
 
 Example usage of `express-house-rules`:
