@@ -6,7 +6,7 @@ const registerHouseRules = schema => {
   houseRulesSchema = schema
 }
 
-// Creactes a schema based on the rules passed
+// Creates a schema based on the rules passed
 const createSchema = fields => {
 
   if (fields[0] instanceof Schema) {
